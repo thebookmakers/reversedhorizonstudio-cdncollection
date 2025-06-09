@@ -1,4 +1,7 @@
-This is Repo to host all collection files used for https://github.com/thebookmakers/reversedhorizonstudio-projectrepo and https://github.com/thebookmakers/reversedhorizonstudiopage
+This is Repo to host all collection files used for 
+`https://github.com/thebookmakers/reversedhorizonstudio-projectrepo` 
+and 
+`https://github.com/thebookmakers/reversedhorizonstudiopage`
 To use, you can use JSDelivr CDN and add it directly to the project. For example :
 
 To call cdnfiles/css/fonts.css file <br>
