@@ -211,16 +211,20 @@
         content: ".NET WebAssembly";
     }
 
-    25% {
+    20% {
         content: "Lots of Love";
     }
 
-    50% {
+    40% {
         content: "Bunch of Coffee";
     }
 
-    75% {
+    60% {
         content: "Lack of Sleep";
+    }
+
+    80% {
+        content: "Endless Supply of Instant Noodles";
     }
 
     100% {
