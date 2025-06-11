@@ -37,6 +37,20 @@ window.jsonEditorInterop = {
         const byteLength = new TextEncoder().encode(compressed).length;
         return { compressed, size: byteLength };
     },
+    copyShareLinkWithHtml: function (text, url) {
+        const html = `<a href="${url}" target="_blank">${text}</a>`;
+        const plain = `${text} (Source: ${url})`;
+
+        const blobHtml = new Blob([html], { type: "text/html" });
+        const blobText = new Blob([plain], { type: "text/plain" });
+
+        const clipboardItem = new ClipboardItem({
+            "text/plain": blobText,
+            "text/html": blobHtml
+        });
+
+        return navigator.clipboard.write([clipboardItem]);
+    },
 };
 
 function reportCursorInfo() {
