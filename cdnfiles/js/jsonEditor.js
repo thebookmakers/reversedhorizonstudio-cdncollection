@@ -4,7 +4,11 @@ let dotNetRef;
 window.jsonEditorInterop = {
     init: function (elementId, initialValue, dotNetHelper) {
         editor = ace.edit(elementId);
-        editor.setTheme("ace/theme/github");
+
+        const isDark = document.documentElement.classList.contains('dark-theme');
+        const theme = isDark ? "ace/theme/monokai" : "ace/theme/github";
+
+        editor.setTheme(theme);
         editor.session.setMode("ace/mode/json");
         editor.setValue(initialValue, -1);
         editor.session.setUseWrapMode(true);
