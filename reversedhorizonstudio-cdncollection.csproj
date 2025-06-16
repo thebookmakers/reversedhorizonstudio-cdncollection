@@ -8,6 +8,38 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="cdnfiles\css\app.css" />
+    <None Remove="cdnfiles\css\carousel.css" />
+    <None Remove="cdnfiles\css\custom.css" />
+    <None Remove="cdnfiles\css\fonts.css" />
+    <None Remove="cdnfiles\js\jsonEditor.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="cdnfiles\css\app.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cdnfiles\css\carousel.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="cdnfiles\css\custom.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cdnfiles\css\fonts.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="cdnfiles\js\jsonEditor.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="cdnfiles\images\carousel\" />
   </ItemGroup>
 

@@ -4,7 +4,7 @@ let dotNetRef;
 window.jsonEditorInterop = {
     init: function (elementId, initialValue, dotNetHelper) {
         editor = ace.edit(elementId);
-
+        window.editor = ace.edit(elementId); // make it global
         const isDark = document.documentElement.classList.contains('dark-theme');
         const theme = isDark ? "ace/theme/monokai" : "ace/theme/github";
 
@@ -19,6 +19,15 @@ window.jsonEditorInterop = {
         dotNetHelper.invokeMethodAsync("OnEditorReady");
         editor.session.selection.on('changeCursor', reportCursorInfo);
         editor.session.selection.on('changeSelection', reportCursorInfo);
+    },
+    setThemeBasedOnCurrent: function () {
+        const isDark = document.documentElement.classList.contains('dark-theme');
+        const theme = isDark ? "ace/theme/monokai" : "ace/theme/github";
+        if (editor) {
+            editor.setTheme(theme);
+            editor.resize(true);
+            editor.renderer.updateFull(true);
+        }
     },
     getValue: function () {
         return editor.getValue();
@@ -64,3 +73,24 @@ function reportCursorInfo() {
     const selectedText = editor.session.getTextRange(range);
     dotNetRef.invokeMethodAsync("UpdateEditorStatus", pos.row + 1, pos.column + 1, selectedText.length);
 }
+
+function applyEditorTheme() {
+    const isDark = document.documentElement.classList.contains('dark-theme');
+    const theme = isDark ? "ace/theme/monokai" : "ace/theme/github";
+    if (window.editor) {
+        window.editor.setTheme(theme);
+    }
+}
+
+const observer = new MutationObserver((mutations) => {
+    for (let mutation of mutations) {
+        if (mutation.attributeName === "class") {
+            applyEditorTheme();
+        }
+    }
+});
+
+observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"]
+});

@@ -4,8 +4,9 @@
     width: 100%;
     height: 400px;
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: #fff;
+    transition: height 0.3s ease;
 }
 
 .carousel-inner {
@@ -23,7 +24,7 @@
     background-position: center;
     background-repeat: no-repeat;
     flex-shrink: 0;
-    background-color: #CCCCCC;
+    background-color: var(--bg-tertiary); 
 }
 
 .carousel-1 {
@@ -106,7 +107,6 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
     transition: background-color 0.3s ease;
 }
 
@@ -189,22 +189,19 @@
     top: 0;
     left: 0;
     width: 320px;
-    height: 91%; /*100% if want full height*/
+    height: 90%; /*100% if want full height*/
     border-radius: 0 0 30px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #ffffff;
+    color: #fff;
     z-index: 5;
     padding: 20px;
     background-color: rgba(0,0,0,0.8);
+    user-select: none;
+    text-align: right;
+    font-family: 'asapcondensedregular';
 }
-
-    .carousel-overlay-content > span {
-        font-family: 'asapcondensedregular';
-        font-size: 20px;
-        text-align: right;
-    }
 
 @keyframes rotateText {
     0% {
@@ -212,19 +209,19 @@
     }
 
     20% {
-        content: "Lots of Love";
+        content: "Mild Existential Dread";
     }
 
     40% {
-        content: "Bunch of Coffee";
+        content: "Caffeinated Regret";
     }
 
     60% {
-        content: "Lack of Sleep";
+        content: "Poor Life Choices";
     }
 
     80% {
-        content: "Endless Supply of Instant Noodles";
+        content: "Industrial-Grade Instant Noodles";
     }
 
     100% {
@@ -244,44 +241,21 @@
     font-weight: bold;
 }
 
-@media (max-width: 768px) {
-    .home-header {
-        height: 300px;
-        margin: 0 1rem;
-    }
-
-    .carousel-overlay-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .carousel-overlay-content p {
-        font-size: 1.2rem;
-        max-width: 85%;
-    }
-}
-
-@media (max-width: 480px) {
-    .home-header {
-        height: 200px;
-        border-radius: 0.5rem;
+@media (max-width: 900px) {
+    .carousel-overlay-content {
+        display: none;
     }
 
     .carousel-dots {
-        bottom: 0.5rem;
-        gap: 0.3rem;
+        left: 50%;
+    }
+
+    .carousel-header {
+        height: 200px;
     }
 
     .dot {
         width: 8px;
         height: 8px;
-    }
-
-    .carousel-overlay-content h1 {
-        font-size: 1.8rem;
-    }
-
-    .carousel-overlay-content p {
-        font-size: 1rem;
-        max-width: 90%;
     }
 }
